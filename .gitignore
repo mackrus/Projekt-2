@@ -1,0 +1,54 @@
+
+# Appended from ~/.gitignore_global
+
+# MacOS
+*.DS_Store
+*.swp
+*.swo
+
+# nvim
+.nvimlog
+
+# uv
+uv.lock
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment
+.env
+venv/
+env/
+
+# Credentials
+credentials.json
+token.json
+
+# IDE
+.vscode/
+.idea/
+
+# Python-generated files
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# uv
+uv.lock
+
+#Oauth
+secret.json
+
+# random python stuff
+*.pyc
+*.pyo
+*.pyd
+*.pyw
+*.pyz

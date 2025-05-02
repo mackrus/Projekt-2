@@ -12,6 +12,9 @@
 # uv
 uv.lock
 
+# ruff
+*.ruff*
+
 # Python
 __pycache__/
 *.py[cod]
@@ -40,8 +43,6 @@ wheels/
 # Virtual environments
 .venv
 
-# uv
-uv.lock
 
 #Oauth
 secret.json

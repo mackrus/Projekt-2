@@ -1,29 +1,11 @@
-# 2
+# Projekt 2
 
 ## Description
 
 A brief description of the 2 project. Replace this with your project's purpose and features.
 
-## Installation
 
-```bash
-pip install .
-```
-
-Or with `uv`:
-
-```bash
-uv sync
-```
-
-## Usage
-
-```python
-import 2
-# Add usage examples here
-```
-
-## Author
+## Authors
 
 - Name: Markus Bajlo
 - Email: [markusbajlo@gmail.com](email)

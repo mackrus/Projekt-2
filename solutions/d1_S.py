@@ -1,7 +1,7 @@
 import os
+
 import numpy as np
-import matplotlib.pyplot as plt
-from scipy.integrate import quad, trapezoid
+from scipy.integrate import quad
 
 PLOTDIR = '../plots/'
 if not os.path.exists(PLOTDIR):
@@ -50,15 +50,19 @@ gamma = 0.1
 N = 4000
 T = 10
 
-def theta(gamma,omega,omega_0,t):
+def theta_prime(gamma,omega,omega_0,t):
  first_part = (gamma * omega_0**2) / (omega_0**2 - omega**2)
  second_part = (omega_0*np.sin(omega_0*t)-omega*np.sin(omega*t))
  return first_part * second_part
 
 def speed(t):
- return abs(theta(gamma,omega,omega_0,t))
+ return abs(theta_prime(gamma,omega,omega_0,t))
 
 t = np.linspace(0,T,N)
 
+speed_instance = speed(t)
 
+S, err = quad(speed, 0, 0.25, epsabs=1.49e-12, epsrel=1.49e-12, limit=500)
+
+print(S, err)
 

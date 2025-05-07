@@ -1,13 +1,17 @@
 import os
 
+
 import numpy as np
+import matplotlib.pyplot as plt
 from scipy.integrate import quad
 
-PLOTDIR = '../plots/'
+PLOTDIR = "../plots/"
 if not os.path.exists(PLOTDIR):
     os.makedirs(PLOTDIR)
 
 """
+INTRUKTIONER
+
 Skapa en funktion i Python, som givet en tidsvektor returnerar beloppet
 av hastigheten |𝑣(𝑡)| i motsvarande
 punkter där den analytiska vinkelhastig-heten ges av (4) . Övriga 3
@@ -43,25 +47,48 @@ detta fall.
 
  """
 # KONSTANTER
-omega = 2*np.pi
-omega_0 = 3*np.pi
+omega = 2 * np.pi
+omega_0 = 3 * np.pi
 gamma = 0.1
-N = 4000
-T = 10
+N = 200
+T = 0.25
 
-def theta_prime(gamma,omega,omega_0,t):
- first_part = (gamma * omega_0**2) / (omega_0**2 - omega**2)
- second_part = (omega_0*np.sin(omega_0*t)-omega*np.sin(omega*t))
- return first_part * second_part
+
+def theta_prime(gamma, omega, omega_0, t):
+    first_part = (gamma * omega_0**2) / (omega_0**2 - omega**2)
+    second_part = omega_0 * np.sin(omega_0 * t) - omega * np.sin(omega * t)
+    return first_part * second_part
+
 
 def speed(t):
- return abs(theta_prime(gamma,omega,omega_0,t))
+    return abs(theta_prime(gamma, omega, omega_0, t))
 
-t = np.linspace(0,T,N)
 
-speed_instance = speed(t)
+t = np.linspace(0, T, N)
 
-S, err = quad(speed, 0, 0.25, epsabs=1.49e-12, epsrel=1.49e-12, limit=500)
+S, err = quad(speed, 0, T, epsabs=1.49e-12, epsrel=1.49e-12, limit=500)
+y = speed(t)
 
-print(S, err)
+plt.plot(t, y, label="N = 200")
+plt.fill_between(
+    t,
+    y,
+    where=(t >= t[0]) & (t <= t[-1]),
+    color="skyblue",
+    alpha=0.5,
+    label=f"$\\theta \\approx {S:.2f}$",
+)
+plt.xlabel("t")
+plt.ylabel("$|v|$")
+plt.legend()
+plt.savefig(os.path.join(PLOTDIR, "d1_v_int.png"))
+"""
+ANTECKNINGAR: 
 
+Ser ni också någon varning då ni anropar quad i detta
+fall? - för 0 till T:" IntegrationWarning: The occurrence of roundoff error is detected, which prevents
+  the requested tolerance from being achieved.  The error may be
+  underestimated."
+för 0 till 0.25: 1.4130832128153975e-15
+
+"""

@@ -36,11 +36,10 @@ fall?
 
 Man ser att hastigheten för första gången (efter t=0) blir noll
 nära 𝑡 = 0 . 255. Testa nu att räkna (med quad) mellan
- 𝑡 = 0 och 𝑡 = 0 . 25, där lösningen är snäll i hela
+ 𝑡 = 0 och 𝑡= 0.25, där lösningen är snäll i hela
 intervallet, där ni också plottar upp
  𝑣 ( 𝑡 ). Använd 𝑁 = 200 intervall i
 detta fall.
- quote 
 
  """
 # KONSTANTER

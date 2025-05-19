@@ -46,19 +46,26 @@ plt.plot(SOL_1.t, SOL_1.y[0], label="$\\gamma = 1.07$")
 # plt.fill_between(SOL_1.t, SOL_1.y[0], 0)
 
 
-def plot_trapz(x, ax):
+def plot_trapz(t, y, ax):
     lines = []
-    lines.append(ax.plot(x, f(x), color="red", lw=0.5))
-
-    lines.append(
-        ax.plot(x, np.full(x.shape, 0), color="red", lw=0.5, label="Trapezoidal rule")
-    )
-
-    for i in range(x.size):
-        lines.append(ax.plot([x[i], x[i]], [0, f(x[i])], color="red", lw=0.5))
-
+    # Rita huvudkurvan
+    lines.append(ax.plot(t, y, color="red", lw=0.5, label="$\\gamma = 1.07$"))
+    
+    # Rita x-axeln
+    lines.append(ax.plot(t, np.zeros_like(t), color="red", lw=0.5, label="Trapezoidal rule"))
+    
+    # Rita vertikala linjer för trapetserna
+    for i in range(t.size):
+        lines.append(ax.plot([t[i], t[i]], [0, y[i]], color="red", lw=0.5))
+    
     return lines
 
+
+# Skapa figuren och axeln
+fig, ax = plt.subplots()
+
+# Använd plot_trapz med dina värden
+plot_trapz(SOL_1.t, SOL_1.y[0], ax)
 
 plt.ylim(-20, 20)
 plt.legend()

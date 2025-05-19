@@ -48,7 +48,7 @@ omega = 2*np.pi
 omega_0 = 3*np.pi
 gamma = 0.1
 N = 4000
-T = 10
+T = 0.25
 
 def theta_prime(gamma,omega,omega_0,t):
  first_part = (gamma * omega_0**2) / (omega_0**2 - omega**2)
@@ -64,5 +64,5 @@ speed_instance = speed(t)
 
 S, err = quad(speed, 0, 0.25, epsabs=1.49e-12, epsrel=1.49e-12, limit=500)
 
-print(S, err)
+print(f'speed: {S}, error: {err}')
 

@@ -51,7 +51,7 @@ def q(fel, N):
 print(f'simpsons ger {S} error: {err}')
 print(f'felet i med stegen {N}: felet = {felet}')
 print(f'area under grafen {S_trap}')
-
+print(f'konvergensen = {q(fel,N)}')
 plt.plot(N,q(fel,N))
 plt.yscale('log')
 

@@ -4,7 +4,7 @@
 ## Authors
 
 - Names: Markus Bajlo, Erik Miller
-- Email: [user@gmail.com](email), [erik.sven.miller.2001@gmail.com](email)
+- Email: [markusbajlo@gmail.com](email), [erik.sven.miller.2001@gmail.com](email)
 - GitHub: mackrus, kodmiller
 
 

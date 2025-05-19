@@ -1,19 +1,11 @@
 # Projekt 2
 
-## Description
-
-A brief description of the 2 project. Replace this with your project's purpose and features.
-
 
 ## Authors
 
-- Name: Markus Bajlo
-- Email: [markusbajlo@gmail.com](email)
-- GitHub: mackrus
-
-## Contributing
-
-Contributions are welcome! Please open an issue or pull request.
+- Names: Markus Bajlo, Erik Miller
+- Email: [user@gmail.com](email), [erik.sven.miller.2001@gmail.com](email)
+- GitHub: mackrus, kodmiller
 
 
 ## License

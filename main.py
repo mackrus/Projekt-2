@@ -1,6 +1,8 @@
-def main():
-    print("Hello from 2!")
+import numpy as np
+
+A = np.array([[4, 0], [0, -4]])
+
+eigs = np.linalg.eig(A)
 
 
-if __name__ == "__main__":
-    main()
+print(eigs)

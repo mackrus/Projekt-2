@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 
-PLOTDIR = '../plots/'
+PLOTDIR = "../plots/"
 if not os.path.exists(PLOTDIR):
     os.makedirs(PLOTDIR)
 
@@ -43,26 +43,29 @@ detta fall.
 
  """
 # KONSTANTER
-omega = 2*np.pi
-omega_0 = 3*np.pi
+omega = 2 * np.pi
+omega_0 = 3 * np.pi
 gamma = 0.1
 N = 4000
 T = 10
 
-def theta(gamma,omega,omega_0,t):
- first_part = (gamma * omega_0**2) / (omega_0**2 - omega**2)
- second_part = (omega_0*np.sin(omega_0*t)-omega*np.sin(omega*t))
- return first_part * second_part
+
+def theta(gamma, omega, omega_0, t):
+    first_part = (gamma * omega_0**2) / (omega_0**2 - omega**2)
+    second_part = omega_0 * np.sin(omega_0 * t) - omega * np.sin(omega * t)
+    return first_part * second_part
+
 
 def speed(t):
- return abs(theta(gamma,omega,omega_0,t))
+    return abs(theta(gamma, omega, omega_0, t))
 
-t = np.linspace(0,T,N)
+
+t = np.linspace(0, T, N)
 
 speed_instance = speed(t)
 
-plt.plot(t,speed_instance)
-plt.xlabel('$t$')
-plt.ylabel('$|v|$')
-plt.savefig(os.path.join(PLOTDIR, 'd1_abs_v.png'))
+plt.plot(t, speed_instance)
+plt.xlabel("$t$")
+plt.ylabel("$|v|$")
+plt.savefig(os.path.join(PLOTDIR, "d1_abs_v.png"))
 plt.close()
